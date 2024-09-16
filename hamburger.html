@@ -1,0 +1,128 @@
+<div class="menuwrapper" id="HamburgerMenu">
+    <div class="line1" id="HamburgerLine1" ></div>
+    <div class="line2" id="HamburgerLine2"></div>
+    <div class="desc" id="HamburgerDescription">menu</div>
+</div>
+<style>
+    .menuwrapper{
+        width:100px;
+        height: 100px;
+        padding:0px;
+        border:5px solid #000;
+        border-radius:20px;
+        transition: all 0.5s ease; 
+    }
+    .menuwrapper-isactive{
+        width:100px;
+        height: 100px;
+        padding:0px;
+        border:5px solid #000;
+        border-radius:20px;
+        background-color: #485859;
+        transition: all 0.5s ease; 
+    }
+    .menuwrapper:hover{
+        background-color:aliceblue;
+    }
+    .line1{
+        width:80%;
+        height:10px;
+        margin:auto;
+        background-color:#000;
+        border:5px solid #000;
+        border-radius:20px;
+        margin-top:10px;
+        margin-bottom:10px;
+        transition: all 0.5s ease; 
+    }
+    .line1-isactive{
+        width:80%;
+        height:10px;
+        margin:auto;
+        background-color:aliceblue;
+        border:5px solid #000;
+        border-radius:20px;
+        margin-top:10px;
+        margin-bottom:10px;
+        transform: translate(0px,30px);
+        transition: all 0.5s ease; 
+    }
+    .line2{
+        width:80%;
+        height:10px;
+        margin:auto;
+        background-color:#000;
+        border:5px solid #000;
+        border-radius:20px;
+        margin-top:10px;
+        margin-bottom:5px;
+        transition: all 0.5s ease; 
+    }
+    .line2-isactive{
+        width:80%;
+        height:10px;
+        margin:auto;
+        background-color:aliceblue;
+        border:5px solid #000;
+        border-radius:20px;
+        margin-top:10px;
+        margin-bottom:5px;
+        transition: all 0.5s ease;     
+    }    
+    .desc{
+        width:80%;
+        height:20px;
+        margin:auto;
+        color:#000;
+        text-align:center;
+        user-select: none; /* 標準のプロパティ */
+        -webkit-user-select: none; /* Safari用 */
+        -moz-user-select: none; /* Firefox用 */
+        -ms-user-select: none; /* Internet Explorer用 */
+    }
+    .desc-isactive{
+        width:80%;
+        height:20px;
+        margin:auto;
+        color:aliceblue;
+        text-align:center;
+        user-select: none; /* 標準のプロパティ */
+        -webkit-user-select: none; /* Safari用 */
+        -moz-user-select: none; /* Firefox用 */
+        -ms-user-select: none; /* Internet Explorer用 */
+    }
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', (event) =>{
+        const element = document.getElementById('HamburgerMenu');
+        const line1 = document.getElementById('HamburgerLine1');
+        const line2 = document.getElementById('HamburgerLine2');
+        const desc = document.getElementById('HamburgerDescription');
+
+            element.addEventListener('click', () => {
+                if(element.classList.contains('menuwrapper')){
+                    element.classList.add('menuwrapper-isactive');
+                    line1.classList.add('line1-isactive');
+                    line2.classList.add('line2-isactive');
+                    desc.classList.add('desc-isactive');
+                    element.classList.remove('menuwrapper');
+                    line1.classList.remove('line1');
+                    line2.classList.remove('line2');
+                    desc.classList.remove('desc');
+                    desc.innerText="close";
+                    
+                }else{
+                    element.classList.remove('menuwrapper-isactive');
+                    line1.classList.remove('line1-isactive');
+                    line2.classList.remove('line2-isactive');
+                    desc.classList.remove('desc-isactive');
+                    element.classList.add('menuwrapper');
+                    line1.classList.add('line1');
+                    line2.classList.add('line2');
+                    desc.classList.add('desc');
+                    desc.innerText="menu";
+                }
+
+            });
+    });
+</script>
